@@ -1,3 +1,5 @@
+//interface-->schema-->model-->dbQuery
+
 import { Schema, model, connect } from 'mongoose';
 
 //https://mongoosejs.com/docs/typescript.html
@@ -13,13 +15,22 @@ export type Guardian = {
   motherOccupation: string;
   motherContactNumber: string;
 };
+
+export type LocalGuardian = {
+  name: string;
+  occupation: string;
+  contactNumber: string;
+  address: string;
+};
+export type UserName = {
+  firstName: string;
+  middleName: string;
+  lastName: string;
+};
+
 export type Student = {
   id: string;
-  name: {
-    firstName: string;
-    middleName: string;
-    lastName: string;
-  };
+  name: UserName;
   //   gender: string;
   gender: 'male' | 'female';
   dateOfBirth: string;
@@ -39,4 +50,8 @@ export type Student = {
   //     motherContactNumber: string;
   //   };
   guardian: Guardian;
+  localGuardian: LocalGuardian;
+  profileImg: string; //akane url link t hobe so type is string
+  //   isActive: 'active' | 'inActive';
+  isActive: ['active', 'blocked'];
 };
