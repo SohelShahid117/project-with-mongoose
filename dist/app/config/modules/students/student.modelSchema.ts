@@ -55,4 +55,5 @@ const studentSchema = new Schema<Student>({
 // 3. Create a Model.
 // const User = model<IUser>('User', userSchema);
 
-const Student = model<UserName>("Student",studentSchema)
+// const Student = model<UserName>("Student",studentSchema)
+export const StudentModel = model<Student>("Student",studentSchema)
